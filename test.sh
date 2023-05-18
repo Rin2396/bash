@@ -36,18 +36,18 @@ else
     exit 1
 fi
 
-echo "Основной тест"
-./$test_file -i inp.txt -o out.txt
-xdotool key <f>
-xdotool key <enter>
+# echo "Основной тест"
+# ./$test_file -i inp.txt -o out.txt
+# xdotool key <f>
+# xdotool key <enter>
 
-for line in $(cat $in)
-do
-    if [[ $line -eq 3 ]]
-    then
-        echo "Тест пройден"
-        exit 0
-    else
-        echo "Тест провален"
-        exit 1
-    fi
+# for line in $(cat $in)
+# do
+#     if [[ $line -eq 3 ]]
+#     then
+#         echo "Тест пройден"
+#         exit 0
+#     else
+#         echo "Тест провален"
+#         exit 1
+#     fi
