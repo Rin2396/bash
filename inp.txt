@@ -1,9 +1,9 @@
 a
 b
-f
+f a f
 g
-b
+b f g a
 a
 a
 a
-f
+f0

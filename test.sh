@@ -1,7 +1,7 @@
 #!/bin/bash
 test_file=$1
 
-chmod +x $test_file
+chmod +x ./$test_file
 
 echo "Тест ввода аргументов"
 ./$test_file > /dev/null
@@ -25,9 +25,8 @@ else
     exit 1
 fi
 
-echo "Тест скрипта"
-./$test_file inp.txt out.txt
-cat out.txt
+echo "Тест выполнения скрипта"
+./$test_file -i inp.txt -o out.txt
 test_out=`echo $?`
 if [[ $test_out -eq 0 ]]
 then
@@ -36,3 +35,19 @@ else
     echo "Тест провален"
     exit 1
 fi
+
+echo "Основной тест"
+./$test_file -i inp.txt -o out.txt
+xdotool key <f>
+xdotool key <enter>
+
+for line in $(cat $in)
+do
+    if [[ $line -eq 3 ]]
+    then
+        echo "Тест пройден"
+        exit 0
+    else
+        echo "Тест провален"
+        exit 1
+    fi
